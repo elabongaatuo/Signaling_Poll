@@ -10,7 +10,7 @@ let channel;
 let channelEvents = {};
 let clientEvents = {};
 
-// Capture queerying peer and voting peer(s) Unique ID
+// Capture querying peer and voting peer(s) Unique ID
 let localUID = 'null';
 let voterUID = 'null';
 
@@ -162,7 +162,7 @@ function submitPoll() {
     sendToChannel();
     closePopup();
 
-    // Send Results to Quuerying Peer
+    // Send Results to Querying Peer
     setTimeout(() => {
         sendVoteToQueryingPeer();
     }, 10000);
@@ -257,7 +257,7 @@ function displayMemberVote(memberId, vote) {
     logElement.appendChild(document.createElement('div')).append(message);
 }
 
-// Send Vote Feedback to Queerying Peer
+// Send Vote Feedback to Querying Peer
 async function sendVoteToQueryingPeer() {
 
     const messageContent = {

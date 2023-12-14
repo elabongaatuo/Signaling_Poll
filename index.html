@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Implement a Poll Feature Using Agora Signaling SDK">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Signaling, Chat">
+  <meta name="Author" content="Elabonga Yvonne">
+  <style>
+    .popup {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+    }
+
+    .popup-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888888;
+      width: 30%;
+      font-weight: bolder;
+    }
+
+    .popup-content button {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .show {
+      display: block;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #popupContainer {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .optionButton {
+      margin: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Creating a Poll</h3>
+  <button id="createPollButton">Create Poll</button>
+
+  <!-- Voting log messages will be appended here dynamically -->
+  <div id="log">
+
+  </div>
+
+  <!-- A log of votes from voting peers to querying peer will be appended here dynamically -->
+  <div id="voteSentence">
+
+  </div>
+
+  <!-- Popup Container to Create Poll -->
+  <div>
+    <div id="createPoll" class="popup">
+      <div class="popup-content">
+        <input type="text" id="questionInput" placeholder="Ask a question">
+        <div id="optionsContainer"></div>
+        <button id="addOptionButton" onclick="addOptions()">Add Options</button>
+        <button id="submitPoll" onclick="submitPoll()">Share Poll</button>
+        <button id="closePopup" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <!-- Popup container for Shared Poll -->
+    <div id="popupContainer" class="popupContainerSharedPoll">
+      <div id="pollContent"></div>
+      <button id="closePoll" onclick="closePoll()">Close</button>
+    </div>
+
+    <!-- Add Agora Signaling SDK -->
+    <script type="text/javascript" src="agora-rtm-sdk-1.5.1.js"></script>
+
+    <!-- Add index.js -->
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
